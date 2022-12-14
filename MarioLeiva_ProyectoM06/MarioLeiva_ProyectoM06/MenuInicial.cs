@@ -13,42 +13,51 @@ namespace MarioLeiva_ProyectoM06
 {
     public partial class MenuInicial : Form
     {
-        
+
+        public string nombreArchivo;
+        string filaSeleccionada;
         public MenuInicial()
         {
             InitializeComponent();
         }
 
+        public MenuInicial(string texto)
+        {
+            InitializeComponent();
+            this.nombreArchivo = texto;
+            filaSeleccionada = texto;
+        }
+
         private void botonCrear_Click(object sender, EventArgs e)
         {
             
-            CrearArchivo_Directorio f1 = new CrearArchivo_Directorio(textBoxRutaArchivo.Text);
-            f1.texto2 = textBoxRutaArchivo.Text;
-            f1.Show();
+            CrearArchivo_Directorio crearArchivo_Directorio = new CrearArchivo_Directorio(textBoxRutaArchivo.Text);
+            crearArchivo_Directorio.ShowDialog();
         }
 
         private void botonOrdenar_Click(object sender, EventArgs e)
         {
-            OrdenarArchivo_Directorio pantalla = new OrdenarArchivo_Directorio();
-            pantalla.ShowDialog();
+            OrdenarArchivo_Directorio ordenarArchivo_Directorio = new OrdenarArchivo_Directorio();
+            ordenarArchivo_Directorio.ShowDialog();
         }
 
         private void botonFiltrar_Click(object sender, EventArgs e)
         {
-            FiltrarArchivo_Directorio pantalla = new FiltrarArchivo_Directorio();
-            pantalla.ShowDialog();
+            FiltrarArchivo_Directorio filtrarArchivo_Directorio = new FiltrarArchivo_Directorio();
+            filtrarArchivo_Directorio.ShowDialog();
         }
 
         private void botonModificar_Click(object sender, EventArgs e)
         {
-            ModificarArchivo_Directorio pantalla = new ModificarArchivo_Directorio();
-            pantalla.ShowDialog();
+            filaSeleccionada = dataGridViewFicheros.SelectedCells[0].Value.ToString();
+            ModificarArchivo_Directorio modificarArchivo_Directorio = new ModificarArchivo_Directorio(filaSeleccionada);
+            modificarArchivo_Directorio.ShowDialog();
         }
 
         private void botonCrearJSON_Click(object sender, EventArgs e)
         {
-            CrearJSON pantalla = new CrearJSON();
-            pantalla.ShowDialog();
+            CrearJSON crearJSON = new CrearJSON();
+            crearJSON.ShowDialog();
         }
 
         public void botonExaminar_Click(object sender, EventArgs e)
@@ -58,25 +67,49 @@ namespace MarioLeiva_ProyectoM06
 
             if (ruta.ShowDialog().Equals(DialogResult.OK))
             {
+
+                dataGridViewFicheros.DataSource = null;
+
                 textBoxRutaArchivo.Text = ruta.SelectedPath;
                 string path = textBoxRutaArchivo.Text;
                 string a = Path.GetDirectoryName(path);
-                DirectoryInfo f = new DirectoryInfo(textBoxRutaArchivo.Text);
-                DirectoryInfo[] aa = f.GetDirectories();
-                List<Fichero> lista = new List<Fichero>();
 
-                for (int i = 0; i < aa.Length; i++)
+                DirectoryInfo d = new DirectoryInfo(textBoxRutaArchivo.Text);
+                DirectoryInfo[] di = d.GetDirectories();
+                FileInfo[] fi = d.GetFiles();
+                List<Fichero> directorio = new List<Fichero>();
+
+                
+
+                int i = 0;
+                while (i < di.Length)
                 {
-                    lista.Add(new Fichero()
+                    directorio.Add(new Fichero()
                     {
-                        Nombre = aa[i].Name,
-                        FechaModificacion = aa[i].LastWriteTime,
-                        Extension = aa[i].Extension
+                        Nombre = di[i].Name,
+                        Extension = di[i].Extension,
+                        FechaModificacion = di[i].LastWriteTime
                         
                     });
+                    i++;
                 }
 
-                dataGridViewFicheros.DataSource = lista;
+                int i2 = 0;
+                while (i2 < fi.Length)
+                {
+                    directorio.Add(new Fichero()
+                    {
+                        Nombre = fi[i2].Name,
+                        Extension = fi[i2].Extension,
+                        PesoArchivo = fi[i2].Length/1024 +" Kb",
+                        FechaModificacion = fi[i2].LastWriteTime
+                        
+
+                    });
+                    i2++;
+                }
+
+                dataGridViewFicheros.DataSource = directorio;
             }
         }
     }

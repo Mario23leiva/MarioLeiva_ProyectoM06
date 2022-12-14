@@ -16,7 +16,6 @@ namespace MarioLeiva_ProyectoM06
     public partial class CrearArchivo_Directorio : Form
     {
         string texto;
-        public string texto2 { get; set; }
         public CrearArchivo_Directorio()
         {
             InitializeComponent();
