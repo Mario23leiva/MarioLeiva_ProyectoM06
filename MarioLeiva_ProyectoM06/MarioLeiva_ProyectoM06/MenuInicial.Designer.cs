@@ -44,9 +44,10 @@
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(713, 309);
+            this.botonModificar.Location = new System.Drawing.Point(951, 380);
+            this.botonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(113, 50);
+            this.botonModificar.Size = new System.Drawing.Size(151, 62);
             this.botonModificar.TabIndex = 0;
             this.botonModificar.Text = "Modificar archivo/directorio";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // botonOrdenar
             // 
-            this.botonOrdenar.Location = new System.Drawing.Point(12, 82);
+            this.botonOrdenar.Location = new System.Drawing.Point(16, 101);
+            this.botonOrdenar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonOrdenar.Name = "botonOrdenar";
-            this.botonOrdenar.Size = new System.Drawing.Size(113, 50);
+            this.botonOrdenar.Size = new System.Drawing.Size(151, 62);
             this.botonOrdenar.TabIndex = 1;
             this.botonOrdenar.Text = "Ordenar";
             this.botonOrdenar.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             // botonFiltrar
             // 
-            this.botonFiltrar.Location = new System.Drawing.Point(131, 82);
+            this.botonFiltrar.Location = new System.Drawing.Point(175, 101);
+            this.botonFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonFiltrar.Name = "botonFiltrar";
-            this.botonFiltrar.Size = new System.Drawing.Size(113, 50);
+            this.botonFiltrar.Size = new System.Drawing.Size(151, 62);
             this.botonFiltrar.TabIndex = 2;
             this.botonFiltrar.Text = "Filtrar";
             this.botonFiltrar.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // botonCrearJSON
             // 
-            this.botonCrearJSON.Location = new System.Drawing.Point(713, 395);
+            this.botonCrearJSON.Location = new System.Drawing.Point(951, 486);
+            this.botonCrearJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonCrearJSON.Name = "botonCrearJSON";
-            this.botonCrearJSON.Size = new System.Drawing.Size(113, 50);
+            this.botonCrearJSON.Size = new System.Drawing.Size(151, 62);
             this.botonCrearJSON.TabIndex = 3;
             this.botonCrearJSON.Text = "Crear JSON";
             this.botonCrearJSON.UseVisualStyleBackColor = true;
@@ -84,18 +88,20 @@
             // 
             // botonLeerJSON
             // 
-            this.botonLeerJSON.Location = new System.Drawing.Point(713, 479);
+            this.botonLeerJSON.Location = new System.Drawing.Point(951, 590);
+            this.botonLeerJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonLeerJSON.Name = "botonLeerJSON";
-            this.botonLeerJSON.Size = new System.Drawing.Size(113, 50);
+            this.botonLeerJSON.Size = new System.Drawing.Size(151, 62);
             this.botonLeerJSON.TabIndex = 4;
             this.botonLeerJSON.Text = "Leer JSON";
             this.botonLeerJSON.UseVisualStyleBackColor = true;
             // 
             // botonExaminar
             // 
-            this.botonExaminar.Location = new System.Drawing.Point(12, 12);
+            this.botonExaminar.Location = new System.Drawing.Point(16, 15);
+            this.botonExaminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonExaminar.Name = "botonExaminar";
-            this.botonExaminar.Size = new System.Drawing.Size(113, 50);
+            this.botonExaminar.Size = new System.Drawing.Size(151, 62);
             this.botonExaminar.TabIndex = 5;
             this.botonExaminar.Text = "Examinar";
             this.botonExaminar.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@
             // 
             // botonCrear
             // 
-            this.botonCrear.Location = new System.Drawing.Point(713, 226);
+            this.botonCrear.Location = new System.Drawing.Point(951, 278);
+            this.botonCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonCrear.Name = "botonCrear";
-            this.botonCrear.Size = new System.Drawing.Size(113, 50);
+            this.botonCrear.Size = new System.Drawing.Size(151, 62);
             this.botonCrear.TabIndex = 6;
             this.botonCrear.Text = "Crear archivo/directorio";
             this.botonCrear.UseVisualStyleBackColor = true;
@@ -113,9 +120,10 @@
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(713, 138);
+            this.botonEliminar.Location = new System.Drawing.Point(951, 170);
+            this.botonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(113, 50);
+            this.botonEliminar.Size = new System.Drawing.Size(151, 62);
             this.botonEliminar.TabIndex = 7;
             this.botonEliminar.Text = "Eliminar archivo/directorio";
             this.botonEliminar.UseVisualStyleBackColor = true;
@@ -123,24 +131,27 @@
             // textBoxRutaArchivo
             // 
             this.textBoxRutaArchivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRutaArchivo.Location = new System.Drawing.Point(131, 26);
+            this.textBoxRutaArchivo.Location = new System.Drawing.Point(175, 32);
+            this.textBoxRutaArchivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxRutaArchivo.Name = "textBoxRutaArchivo";
-            this.textBoxRutaArchivo.Size = new System.Drawing.Size(576, 23);
+            this.textBoxRutaArchivo.Size = new System.Drawing.Size(767, 26);
             this.textBoxRutaArchivo.TabIndex = 9;
             // 
             // dataGridViewFicheros
             // 
             this.dataGridViewFicheros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFicheros.Location = new System.Drawing.Point(13, 139);
+            this.dataGridViewFicheros.Location = new System.Drawing.Point(17, 171);
+            this.dataGridViewFicheros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewFicheros.Name = "dataGridViewFicheros";
-            this.dataGridViewFicheros.Size = new System.Drawing.Size(694, 390);
+            this.dataGridViewFicheros.RowHeadersWidth = 51;
+            this.dataGridViewFicheros.Size = new System.Drawing.Size(925, 480);
             this.dataGridViewFicheros.TabIndex = 10;
             // 
             // MenuInicial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 541);
+            this.ClientSize = new System.Drawing.Size(1117, 666);
             this.Controls.Add(this.dataGridViewFicheros);
             this.Controls.Add(this.textBoxRutaArchivo);
             this.Controls.Add(this.botonEliminar);
@@ -151,6 +162,7 @@
             this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.botonOrdenar);
             this.Controls.Add(this.botonModificar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenuInicial";
             this.Text = "MenuInicial";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFicheros)).EndInit();
@@ -170,7 +182,7 @@
         private System.Windows.Forms.Button botonCrear;
         private System.Windows.Forms.Button botonEliminar;
         private System.Windows.Forms.TextBox textBoxRutaArchivo;
-        private System.Windows.Forms.DataGridView dataGridViewFicheros;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.DataGridView dataGridViewFicheros;
     }
 }

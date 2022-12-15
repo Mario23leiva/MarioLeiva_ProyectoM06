@@ -52,7 +52,9 @@ namespace MarioLeiva_ProyectoM06
             filaSeleccionada = dataGridViewFicheros.SelectedCells[0].Value.ToString();
             ModificarArchivo_Directorio modificarArchivo_Directorio = new ModificarArchivo_Directorio(filaSeleccionada);
             modificarArchivo_Directorio.ShowDialog();
+            
         }
+        
 
         private void botonCrearJSON_Click(object sender, EventArgs e)
         {
@@ -111,6 +113,20 @@ namespace MarioLeiva_ProyectoM06
 
                 dataGridViewFicheros.DataSource = directorio;
             }
+        }
+
+
+        private void gridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Obtiene el elemento seleccionado en la GridView
+            int filaSeleccionada = e.RowIndex;
+            int columnaSeleccionada = e.ColumnIndex;
+            string valorCelda = dataGridViewFicheros[columnaSeleccionada, filaSeleccionada].Value.ToString();
+
+            // Abre el formulario secundario y le pasa los datos del elemento seleccionado
+            ModificarArchivo_Directorio formularioSecundario = new ModificarArchivo_Directorio();
+            formularioSecundario.ValorCelda = valorCelda;
+            formularioSecundario.ShowDialog();
         }
     }
 }

@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MarioLeiva_ProyectoM06
 {
     public partial class ModificarArchivo_Directorio : Form
     {
         string nombreArchivo;
+
+        public string ValorCelda { get; set; }
 
         public ModificarArchivo_Directorio()
         {
@@ -29,10 +32,11 @@ namespace MarioLeiva_ProyectoM06
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string nombreNuevo = textBoxNombreNuevo.Text;
-            MenuInicial menuInicial = new MenuInicial(nombreNuevo);
-            menuInicial.Show();
-            
+
+            this.Close();
+
         }
+
+
     }
 }
