@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MarioLeiva_ProyectoM06
 {
@@ -131,18 +133,21 @@ namespace MarioLeiva_ProyectoM06
             }
         }
 
-
-        private void gridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void botonLeerJSON_Click(object sender, EventArgs e)
         {
-            // Obtiene el elemento seleccionado en la GridView
-            int filaSeleccionada = e.RowIndex;
-            int columnaSeleccionada = e.ColumnIndex;
-            string valorCelda = dataGridViewFicheros[columnaSeleccionada, filaSeleccionada].Value.ToString();
+            OpenFileDialog ruta = new OpenFileDialog();
 
-            // Abre el formulario secundario y le pasa los datos del elemento seleccionado
-            ModificarArchivo_Directorio formularioSecundario = new ModificarArchivo_Directorio();
-            formularioSecundario.ValorCelda = valorCelda;
-            formularioSecundario.ShowDialog();
+            if (ruta.ShowDialog().Equals(DialogResult.OK))
+            {
+
+                textBoxRutaArchivo.Text = ruta.FileName;
+                JObject jobjectInfo = JObject.Parse(File.ReadAllText(textBoxRutaArchivo.Text));
+                List<Fichero> infoJSON = new List<Fichero>();
+                infoJSON = jobjectInfo.ToObject<List<Fichero>>();
+
+                dataGridViewFicheros.DataSource = null;
+                dataGridViewFicheros.DataSource = infoJSON;
+            }
         }
     }
 }

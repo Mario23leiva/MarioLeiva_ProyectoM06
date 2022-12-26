@@ -58,7 +58,7 @@
             // textBoxNombreJSON
             // 
             this.textBoxNombreJSON.Location = new System.Drawing.Point(16, 34);
-            this.textBoxNombreJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombreJSON.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombreJSON.Name = "textBoxNombreJSON";
             this.textBoxNombreJSON.Size = new System.Drawing.Size(253, 22);
             this.textBoxNombreJSON.TabIndex = 7;
@@ -66,7 +66,7 @@
             // textBoxContenidoJSON
             // 
             this.textBoxContenidoJSON.Location = new System.Drawing.Point(16, 92);
-            this.textBoxContenidoJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxContenidoJSON.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxContenidoJSON.Multiline = true;
             this.textBoxContenidoJSON.Name = "textBoxContenidoJSON";
             this.textBoxContenidoJSON.Size = new System.Drawing.Size(520, 506);
@@ -76,12 +76,13 @@
             // botonGuardarJSON
             // 
             this.botonGuardarJSON.Location = new System.Drawing.Point(437, 607);
-            this.botonGuardarJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonGuardarJSON.Margin = new System.Windows.Forms.Padding(4);
             this.botonGuardarJSON.Name = "botonGuardarJSON";
             this.botonGuardarJSON.Size = new System.Drawing.Size(100, 28);
             this.botonGuardarJSON.TabIndex = 5;
             this.botonGuardarJSON.Text = "Guardar";
             this.botonGuardarJSON.UseVisualStyleBackColor = true;
+            this.botonGuardarJSON.Click += new System.EventHandler(this.botonGuardarJSON_Click);
             // 
             // CrearJSON
             // 
@@ -93,7 +94,7 @@
             this.Controls.Add(this.textBoxNombreJSON);
             this.Controls.Add(this.textBoxContenidoJSON);
             this.Controls.Add(this.botonGuardarJSON);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CrearJSON";
             this.Text = "CrearJSON";
             this.ResumeLayout(false);

@@ -45,7 +45,7 @@
             // botonModificar
             // 
             this.botonModificar.Location = new System.Drawing.Point(951, 380);
-            this.botonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonModificar.Margin = new System.Windows.Forms.Padding(4);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(151, 62);
             this.botonModificar.TabIndex = 0;
@@ -56,7 +56,7 @@
             // botonOrdenar
             // 
             this.botonOrdenar.Location = new System.Drawing.Point(16, 101);
-            this.botonOrdenar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonOrdenar.Margin = new System.Windows.Forms.Padding(4);
             this.botonOrdenar.Name = "botonOrdenar";
             this.botonOrdenar.Size = new System.Drawing.Size(151, 62);
             this.botonOrdenar.TabIndex = 1;
@@ -67,7 +67,7 @@
             // botonFiltrar
             // 
             this.botonFiltrar.Location = new System.Drawing.Point(175, 101);
-            this.botonFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.botonFiltrar.Name = "botonFiltrar";
             this.botonFiltrar.Size = new System.Drawing.Size(151, 62);
             this.botonFiltrar.TabIndex = 2;
@@ -78,7 +78,7 @@
             // botonCrearJSON
             // 
             this.botonCrearJSON.Location = new System.Drawing.Point(951, 486);
-            this.botonCrearJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonCrearJSON.Margin = new System.Windows.Forms.Padding(4);
             this.botonCrearJSON.Name = "botonCrearJSON";
             this.botonCrearJSON.Size = new System.Drawing.Size(151, 62);
             this.botonCrearJSON.TabIndex = 3;
@@ -89,17 +89,18 @@
             // botonLeerJSON
             // 
             this.botonLeerJSON.Location = new System.Drawing.Point(951, 590);
-            this.botonLeerJSON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonLeerJSON.Margin = new System.Windows.Forms.Padding(4);
             this.botonLeerJSON.Name = "botonLeerJSON";
             this.botonLeerJSON.Size = new System.Drawing.Size(151, 62);
             this.botonLeerJSON.TabIndex = 4;
             this.botonLeerJSON.Text = "Leer JSON";
             this.botonLeerJSON.UseVisualStyleBackColor = true;
+            this.botonLeerJSON.Click += new System.EventHandler(this.botonLeerJSON_Click);
             // 
             // botonExaminar
             // 
             this.botonExaminar.Location = new System.Drawing.Point(16, 15);
-            this.botonExaminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonExaminar.Margin = new System.Windows.Forms.Padding(4);
             this.botonExaminar.Name = "botonExaminar";
             this.botonExaminar.Size = new System.Drawing.Size(151, 62);
             this.botonExaminar.TabIndex = 5;
@@ -110,7 +111,7 @@
             // botonCrear
             // 
             this.botonCrear.Location = new System.Drawing.Point(951, 278);
-            this.botonCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonCrear.Margin = new System.Windows.Forms.Padding(4);
             this.botonCrear.Name = "botonCrear";
             this.botonCrear.Size = new System.Drawing.Size(151, 62);
             this.botonCrear.TabIndex = 6;
@@ -121,7 +122,7 @@
             // botonEliminar
             // 
             this.botonEliminar.Location = new System.Drawing.Point(951, 170);
-            this.botonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(151, 62);
             this.botonEliminar.TabIndex = 7;
@@ -132,7 +133,7 @@
             // 
             this.textBoxRutaArchivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRutaArchivo.Location = new System.Drawing.Point(175, 32);
-            this.textBoxRutaArchivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRutaArchivo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRutaArchivo.Name = "textBoxRutaArchivo";
             this.textBoxRutaArchivo.Size = new System.Drawing.Size(767, 26);
             this.textBoxRutaArchivo.TabIndex = 9;
@@ -141,7 +142,7 @@
             // 
             this.dataGridViewFicheros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFicheros.Location = new System.Drawing.Point(17, 171);
-            this.dataGridViewFicheros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewFicheros.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewFicheros.Name = "dataGridViewFicheros";
             this.dataGridViewFicheros.RowHeadersWidth = 51;
             this.dataGridViewFicheros.Size = new System.Drawing.Size(925, 480);
@@ -162,7 +163,7 @@
             this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.botonOrdenar);
             this.Controls.Add(this.botonModificar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuInicial";
             this.Text = "MenuInicial";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFicheros)).EndInit();
