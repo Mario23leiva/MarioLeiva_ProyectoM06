@@ -46,3 +46,10 @@ C:\Users\Mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\Ma
 C:\Users\Mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\obj\Debug\MarioLeiva_ProyectoM06.csproj.CoreCompileInputs.cache
 C:\Users\Mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\obj\Debug\MarioLeiva_ProyectoM06.exe
 C:\Users\Mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\obj\Debug\MarioLeiva_ProyectoM06.pdb
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\bin\Debug\Newtonsoft.Json.Bson.dll
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\bin\Debug\Newtonsoft.Json.Bson.pdb
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\bin\Debug\Newtonsoft.Json.Bson.xml
+C:\Users\mario\Documents\GitHub\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\MarioLeiva_ProyectoM06\obj\Debug\MarioLeiva_ProyectoM06.csproj.CopyComplete

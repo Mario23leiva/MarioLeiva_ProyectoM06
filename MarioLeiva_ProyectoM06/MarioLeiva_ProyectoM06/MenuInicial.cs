@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace MarioLeiva_ProyectoM06
 {
@@ -58,7 +60,20 @@ namespace MarioLeiva_ProyectoM06
 
         private void botonCrearJSON_Click(object sender, EventArgs e)
         {
-            CrearJSON crearJSON = new CrearJSON();
+            Fichero obj = new Fichero();
+
+            foreach (DataGridViewRow row in dataGridViewFicheros.Rows)
+            {
+                
+                obj.Nombre = row.Cells[0].Value.ToString();
+                obj.Extension = row.Cells[1].Value.ToString();
+                obj.PesoArchivo = row.Cells[2].Value.ToString();
+                obj.FechaModificacion = DateTime.Parse(row.Cells[3].Value.ToString());
+            }
+
+            string json = JsonConvert.SerializeObject(obj);
+            
+            CrearJSON crearJSON = new CrearJSON(json);
             crearJSON.ShowDialog();
         }
 
@@ -90,6 +105,7 @@ namespace MarioLeiva_ProyectoM06
                     {
                         Nombre = di[i].Name,
                         Extension = di[i].Extension,
+                        PesoArchivo = "Dir",
                         FechaModificacion = di[i].LastWriteTime
                         
                     });

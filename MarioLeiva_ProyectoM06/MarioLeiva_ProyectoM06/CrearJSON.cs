@@ -16,5 +16,18 @@ namespace MarioLeiva_ProyectoM06
         {
             InitializeComponent();
         }
+
+        public CrearJSON(string json)
+        {
+            InitializeComponent();
+            string infoJson = json;
+
+            textBoxContenidoJSON.Text = infoJson;
+        }
+
+        private void textBoxContenidoJSON_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
