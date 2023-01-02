@@ -128,6 +128,7 @@
             this.botonEliminar.TabIndex = 7;
             this.botonEliminar.Text = "Eliminar archivo/directorio";
             this.botonEliminar.UseVisualStyleBackColor = true;
+            this.botonEliminar.Click += new System.EventHandler(this.botonEliminar_Click);
             // 
             // textBoxRutaArchivo
             // 
