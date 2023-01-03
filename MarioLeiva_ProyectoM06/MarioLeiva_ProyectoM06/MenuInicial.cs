@@ -37,6 +37,11 @@ namespace MarioLeiva_ProyectoM06
             
             CrearArchivo_Directorio crearArchivo_Directorio = new CrearArchivo_Directorio(textBoxRutaArchivo.Text);
             crearArchivo_Directorio.ShowDialog();
+            if (crearArchivo_Directorio.ShowInTaskbar)
+            {
+                cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
+            }
+            
         }
 
         private void botonOrdenar_Click(object sender, EventArgs e)
@@ -53,10 +58,14 @@ namespace MarioLeiva_ProyectoM06
 
         private void botonModificar_Click(object sender, EventArgs e)
         {
-            filaSeleccionada = dataGridViewFicheros.SelectedCells[0].Value.ToString();
-            ModificarArchivo_Directorio modificarArchivo_Directorio = new ModificarArchivo_Directorio(filaSeleccionada);
+            filaSeleccionada = cogerRutaCompleta();
+            ModificarArchivo_Directorio modificarArchivo_Directorio = new ModificarArchivo_Directorio(filaSeleccionada, textBoxRutaArchivo.Text);
             modificarArchivo_Directorio.ShowDialog();
-            
+            if (modificarArchivo_Directorio.ShowInTaskbar)
+            {
+                cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
+            }
+
         }
         
 
@@ -89,7 +98,6 @@ namespace MarioLeiva_ProyectoM06
 
         }
 
-        // Clase para representar los datos de cada fila de la DataGridView
         public class Fila
         {
             public string Nombre { get; set; }
@@ -98,13 +106,10 @@ namespace MarioLeiva_ProyectoM06
             public DateTime FechaModificacion { get; set; }
         }
 
-        // Método que convierte los datos de una DataGridView en un archivo JSON
         public string ConvertirDataGridViewAJson(DataGridView dataGridView, string rutaArchivo)
         {
-            // Crear una lista para almacenar las instancias de la clase Fila
-            List<Fila> filas = new List<Fila>();
 
-            // Recorrer las filas de la DataGridView y crear una instancia de la clase Fila para cada una
+            List<Fila> filas = new List<Fila>();
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 Fila fila = new Fila();
@@ -114,23 +119,15 @@ namespace MarioLeiva_ProyectoM06
                 fila.FechaModificacion = DateTime.Parse(row.Cells[3].Value.ToString());
                 filas.Add(fila);
             }
-
-            // Serializar la lista a una cadena JSON
             string json = JsonConvert.SerializeObject(filas);
 
             return json;
         }
-
-        // Método que muestra los datos de un archivo JSON en una DataGridView
         public void MostrarJsonEnDataGridView(DataGridView dataGridView, string rutaArchivo)
         {
-            // Leer el archivo JSON en una cadena
+            
             string json = File.ReadAllText(rutaArchivo);
-
-            // Deserializar la cadena a una lista de instancias de la clase Fila
             List<Fila> filas = JsonConvert.DeserializeObject<List<Fila>>(json);
-
-            // Asignar la lista como el origen de datos de la DataGridView
             dataGridView.DataSource = filas;
         }
         
@@ -141,7 +138,6 @@ namespace MarioLeiva_ProyectoM06
 
             textBoxRutaArchivo.Text = ruta;
             string path = textBoxRutaArchivo.Text;
-            string a = Path.GetDirectoryName(path);
 
             DirectoryInfo d = new DirectoryInfo(textBoxRutaArchivo.Text);
             DirectoryInfo[] di = d.GetDirectories();
@@ -186,30 +182,39 @@ namespace MarioLeiva_ProyectoM06
 
         private void botonEliminar_Click(object sender, EventArgs e)
         {
-            // Obtener la ruta del archivo o directorio seleccionado
-            string ruta = textBoxRutaArchivo.Text+"\\"+dataGridViewFicheros.SelectedCells[0].Value.ToString();
 
+
+            string ruta = cogerRutaCompleta();
             
 
 
-            // Comprobar si la ruta corresponde a un archivo o a un directorio
             if (File.Exists(ruta))
             {
-                // Es un archivo, eliminarlo
                 File.Delete(ruta);
+                MessageBox.Show("Se ha eliminado correctamente");
+                dataGridViewFicheros.DataSource = null;
+                cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
             }
             else if (Directory.Exists(ruta))
             {
-                // Es un directorio, eliminarlo
                 Directory.Delete(ruta);
+                MessageBox.Show("Se ha eliminado correctamente");
+                dataGridViewFicheros.DataSource = null;
+                cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
             }
 
-            // Actualizar la DataGridView para reflejar los cambios
-            dataGridViewFicheros.DataSource = null;
+            else
+            {
+                MessageBox.Show("Error\nSelecciona el nombre del elemento a eliminar");
+            }
+        }
 
-            cargarDatosEnDataGrid(ruta);
-            
-
+        public string cogerRutaCompleta()
+        {
+            int w = dataGridViewFicheros.SelectedCells[0].RowIndex;
+            string i = dataGridViewFicheros.Rows[w].Cells[0].Value.ToString();
+            string ruta = textBoxRutaArchivo.Text + "\\" + i;
+            return ruta;
         }
     }
 }
