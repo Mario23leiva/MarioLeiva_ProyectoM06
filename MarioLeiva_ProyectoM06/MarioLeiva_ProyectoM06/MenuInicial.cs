@@ -18,7 +18,7 @@ namespace MarioLeiva_ProyectoM06
     public partial class MenuInicial : Form
     {
 
-        public string nombreArchivo;
+        public string nombreArchivo, filtrar = "Todo", ordenar = "Nombre";
         string filaSeleccionada;
         public MenuInicial()
         {
@@ -46,14 +46,25 @@ namespace MarioLeiva_ProyectoM06
 
         private void botonOrdenar_Click(object sender, EventArgs e)
         {
-            OrdenarArchivo_Directorio ordenarArchivo_Directorio = new OrdenarArchivo_Directorio();
+            OrdenarArchivo_Directorio ordenarArchivo_Directorio = new OrdenarArchivo_Directorio(ordenar);
             ordenarArchivo_Directorio.ShowDialog();
+            if (ordenarArchivo_Directorio.ShowInTaskbar)
+            {
+                filtrar = ordenarArchivo_Directorio.ordenar;
+                cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
+            }
         }
 
         private void botonFiltrar_Click(object sender, EventArgs e)
         {
-            FiltrarArchivo_Directorio filtrarArchivo_Directorio = new FiltrarArchivo_Directorio();
+            FiltrarArchivo_Directorio filtrarArchivo_Directorio = new FiltrarArchivo_Directorio(filtrar);
             filtrarArchivo_Directorio.ShowDialog();
+            
+            if (filtrarArchivo_Directorio.ShowInTaskbar)
+            {
+                filtrar = filtrarArchivo_Directorio.filtro;
+                cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
+            }
         }
 
         private void botonModificar_Click(object sender, EventArgs e)
@@ -144,38 +155,48 @@ namespace MarioLeiva_ProyectoM06
             FileInfo[] fi = d.GetFiles();
             List<Fichero> directorio = new List<Fichero>();
 
-
-
-            int i = 0;
-            while (i < di.Length)
+            if (filtrar.Equals("Todo") || filtrar.Equals("Directorios"))
             {
-                directorio.Add(new Fichero()
+                int i = 0;
+                while (i < di.Length)
                 {
-                    Nombre = di[i].Name,
-                    Extension = di[i].Extension,
-                    PesoArchivo = "Dir",
-                    FechaModificacion = di[i].LastWriteTime
+                    directorio.Add(new Fichero()
+                    {
+                        Nombre = di[i].Name,
+                        Extension = di[i].Extension,
+                        PesoArchivo = "Dir",
+                        FechaModificacion = di[i].LastWriteTime
 
-                });
-                i++;
+                    });
+                    i++;
+                }
             }
 
-            int i2 = 0;
-            while (i2 < fi.Length)
+            if (filtrar.Equals("Todo") || filtrar.Equals("Archivos"))
             {
-                directorio.Add(new Fichero()
+                int i2 = 0;
+                while (i2 < fi.Length)
                 {
-                    Nombre = fi[i2].Name,
-                    Extension = fi[i2].Extension,
-                    PesoArchivo = fi[i2].Length / 1024 + " Kb",
-                    FechaModificacion = fi[i2].LastWriteTime
+                    directorio.Add(new Fichero()
+                    {
+                        Nombre = fi[i2].Name,
+                        Extension = fi[i2].Extension,
+                        PesoArchivo = fi[i2].Length / 1024 + " Kb",
+                        FechaModificacion = fi[i2].LastWriteTime
 
 
-                });
-                i2++;
+                    });
+                    i2++;
+                }
             }
+            if (ordenar.Equals("Nombre"))
+            {
+                BindingList<Fichero> bindingList = new BindingList<Fichero>(directorio);
 
-            dataGridViewFicheros.DataSource = directorio;
+                dataGridViewFicheros.DataSource = bindingList;
+                dataGridViewFicheros.Sort(dataGridViewFicheros.Columns[0], ListSortDirection.Descending);
+
+            }
         }
 
 
