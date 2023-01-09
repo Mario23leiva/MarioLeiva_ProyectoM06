@@ -189,14 +189,7 @@ namespace MarioLeiva_ProyectoM06
                     i2++;
                 }
             }
-            if (ordenar.Equals("Nombre"))
-            {
-                BindingList<Fichero> bindingList = new BindingList<Fichero>(directorio);
-
-                dataGridViewFicheros.DataSource = bindingList;
-                dataGridViewFicheros.Sort(dataGridViewFicheros.Columns[0], ListSortDirection.Descending);
-
-            }
+            dataGridViewFicheros.DataSource = directorio;
         }
 
 
