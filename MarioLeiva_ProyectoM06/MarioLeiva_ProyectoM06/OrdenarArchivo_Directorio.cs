@@ -13,6 +13,7 @@ namespace MarioLeiva_ProyectoM06
     public partial class OrdenarArchivo_Directorio : Form
     {
         public string ordenar { get; set; }
+        string orden = "Ascendente";
         public OrdenarArchivo_Directorio()
         {
             InitializeComponent();
@@ -28,22 +29,22 @@ namespace MarioLeiva_ProyectoM06
 
         private void radioButtonNombre_CheckedChanged(object sender, EventArgs e)
         {
-            ordenar = radioButtonNombre.Text;
+            ordenar = radioButtonNombre.Text+orden;
         }
 
         private void radioButtonFecha_CheckedChanged(object sender, EventArgs e)
         {
-            ordenar = radioButtonFecha.Text;
+            ordenar = "Fecha" + orden;
         }
 
         private void radioButtonTipo_CheckedChanged(object sender, EventArgs e)
         {
-            ordenar = radioButtonTipo.Text;
+            ordenar = "Tipo" + orden;
         }
 
         private void radioButtonSize_CheckedChanged(object sender, EventArgs e)
         {
-            ordenar = radioButtonSize.Text;
+            ordenar = "Tamaño" + orden;
         }
 
         private void buttonAplicar_Click(object sender, EventArgs e)
@@ -51,6 +52,15 @@ namespace MarioLeiva_ProyectoM06
             MessageBox.Show("Orden aplicado correctamente");
             this.Close();
         }
-        
+
+        private void ascendente_CheckedChanged(object sender, EventArgs e)
+        {
+            orden = ascendente.Text;
+        }
+
+        private void descendente_CheckedChanged(object sender, EventArgs e)
+        {
+            orden = descendente.Text;
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace MarioLeiva_ProyectoM06
     public partial class MenuInicial : Form
     {
 
-        public string nombreArchivo, filtrar = "Todo", ordenar = "Nombre";
+        public string nombreArchivo, filtrar = "Todo", ordenar = "NombreAscendente";
         string filaSeleccionada;
         public MenuInicial()
         {
@@ -154,7 +154,6 @@ namespace MarioLeiva_ProyectoM06
             DirectoryInfo[] di = d.GetDirectories();
             FileInfo[] fi = d.GetFiles();
             List<Fichero> directorio = new List<Fichero>();
-
             if (filtrar.Equals("Todo") || filtrar.Equals("Directorios"))
             {
                 int i = 0;
@@ -189,6 +188,23 @@ namespace MarioLeiva_ProyectoM06
                     i2++;
                 }
             }
+            if (ordenar.Equals("NombreAscendente"))
+            {
+                directorio = directorio.OrderBy(o => o.Nombre).ToList();
+            }
+            else if (ordenar.Equals("NombreDescendente"))
+            {
+                directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
+            }
+            else if (ordenar.Equals("NombreAscendente"))
+            {
+                directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
+            }
+            else if (ordenar.Equals("NombreDescendente"))
+            {
+                directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
+            }
+            //directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
             dataGridViewFicheros.DataSource = directorio;
         }
 
