@@ -72,7 +72,7 @@ namespace MarioLeiva_ProyectoM06
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker1.Value = menuInicial.cutoffDate;
+            menuInicial.cutoffDate = dateTimePicker1.Value;
         }
 
         private void buttonAplicar_Click(object sender, EventArgs e)

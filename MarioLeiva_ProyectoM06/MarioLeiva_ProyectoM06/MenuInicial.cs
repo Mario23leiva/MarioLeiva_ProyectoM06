@@ -222,7 +222,13 @@ namespace MarioLeiva_ProyectoM06
                 directorio = directorio.OrderByDescending(o => o.PesoArchivo).ToList();
             }
 
-            directorio = directorio.Where(f => f.FechaModificacion > cutoffDate).ToList();
+
+            if (cutoffDate != null)
+            {
+                directorio = directorio.Where(f => f.FechaModificacion.Year > cutoffDate.Year && f.FechaModificacion.Month > cutoffDate.Month && f.FechaModificacion.Day > cutoffDate.Day).ToList();
+            }
+
+            
             dataGridViewFicheros.DataSource = directorio;
         }
 
