@@ -14,15 +14,11 @@ namespace MarioLeiva_ProyectoM06
     {
         public string ordenar { get; set; }
         string orden = "Ascendente";
+        
         public OrdenarArchivo_Directorio()
         {
             InitializeComponent();
-        }
-
-        public OrdenarArchivo_Directorio(string orden)
-        {
-            InitializeComponent();
-            ordenar = orden;
+            ordenar = "NombreAscendente";
         }
 
 

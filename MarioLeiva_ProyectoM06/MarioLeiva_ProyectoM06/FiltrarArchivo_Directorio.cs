@@ -13,7 +13,8 @@ namespace MarioLeiva_ProyectoM06
     public partial class FiltrarArchivo_Directorio : Form
     {
         public string filtro { get; set; }
-        
+        MenuInicial menuInicial = new MenuInicial();
+
         public FiltrarArchivo_Directorio()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace MarioLeiva_ProyectoM06
             {
                 radioButtonTodo.Checked = true;
             }
+                
             comprobarFiltro();
         }
 
@@ -45,10 +47,11 @@ namespace MarioLeiva_ProyectoM06
             else
             {
                 filtro = radioButtonTodo.Text;
-                if (radioButtonFC.Checked)
-                {
-                    dateTimePicker1.Enabled = true;
-                }
+            }
+
+            if (checkBoxDT.Checked)
+            {
+                dateTimePicker1.Enabled = true;
             }
         }
 
@@ -67,20 +70,20 @@ namespace MarioLeiva_ProyectoM06
             comprobarFiltro();
         }
 
-        private void radioButtonFC_CheckedChanged(object sender, EventArgs e)
-        {
-            comprobarFiltro();
-        }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            dateTimePicker1.Value = menuInicial.cutoffDate;
         }
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Filtro aplicado correctamente");
             this.Close();
+        }
+
+        private void checkBoxDT_CheckedChanged(object sender, EventArgs e)
+        {
+            comprobarFiltro();
         }
     }
 }

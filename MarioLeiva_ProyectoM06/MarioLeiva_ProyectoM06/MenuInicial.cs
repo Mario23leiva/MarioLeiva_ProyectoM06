@@ -20,6 +20,7 @@ namespace MarioLeiva_ProyectoM06
 
         public string nombreArchivo, filtrar = "Todo", ordenar = "NombreAscendente";
         string filaSeleccionada;
+        public DateTime cutoffDate { get; set; }
         public MenuInicial()
         {
             InitializeComponent();
@@ -46,11 +47,11 @@ namespace MarioLeiva_ProyectoM06
 
         private void botonOrdenar_Click(object sender, EventArgs e)
         {
-            OrdenarArchivo_Directorio ordenarArchivo_Directorio = new OrdenarArchivo_Directorio(ordenar);
+            OrdenarArchivo_Directorio ordenarArchivo_Directorio = new OrdenarArchivo_Directorio();
             ordenarArchivo_Directorio.ShowDialog();
             if (ordenarArchivo_Directorio.ShowInTaskbar)
             {
-                filtrar = ordenarArchivo_Directorio.ordenar;
+                ordenar = ordenarArchivo_Directorio.ordenar;
                 cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
             }
         }
@@ -196,17 +197,35 @@ namespace MarioLeiva_ProyectoM06
             {
                 directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
             }
-            else if (ordenar.Equals("NombreAscendente"))
+            else if (ordenar.Equals("FechaAscendente"))
             {
-                directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
+                directorio = directorio.OrderBy(o => o.FechaModificacion).ToList();
             }
-            else if (ordenar.Equals("NombreDescendente"))
+            else if (ordenar.Equals("FechaDescendente"))
             {
-                directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
+                directorio = directorio.OrderByDescending(o => o.FechaModificacion).ToList();
             }
-            //directorio = directorio.OrderByDescending(o => o.Nombre).ToList();
+            else if (ordenar.Equals("TipoAscendente"))
+            {
+                directorio = directorio.OrderBy(o => o.Extension).ToList();
+            }
+            else if (ordenar.Equals("TipoDescendente"))
+            {
+                directorio = directorio.OrderByDescending(o => o.Extension).ToList();
+            }
+            else if (ordenar.Equals("TamañoAscendente"))
+            {
+                directorio = directorio.OrderBy(o => o.PesoArchivo).ToList();
+            }
+            else if (ordenar.Equals("TamañoDescendente"))
+            {
+                directorio = directorio.OrderByDescending(o => o.PesoArchivo).ToList();
+            }
+
+            directorio = directorio.Where(f => f.FechaModificacion > cutoffDate).ToList();
             dataGridViewFicheros.DataSource = directorio;
         }
+
 
 
 
