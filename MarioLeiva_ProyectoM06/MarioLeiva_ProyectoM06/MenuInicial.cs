@@ -222,7 +222,14 @@ namespace MarioLeiva_ProyectoM06
                 directorio = directorio.OrderByDescending(o => o.PesoArchivo).ToList();
             }
 
-            directorio = directorio.Where(f => f.FechaModificacion.Day.CompareTo(cutoffDate.Day) > 0 && f.FechaModificacion.Month.CompareTo(cutoffDate.Month) > 0 && f.FechaModificacion.Year.CompareTo(cutoffDate.Year) > 0).ToList();
+            foreach (Fichero item in directorio)
+            {
+                int result = DateTime.Compare(item.FechaModificacion, cutoffDate);
+                if (result < 0)
+                {
+                    directorio.Remove(item);
+                }
+            }
 
 
 
