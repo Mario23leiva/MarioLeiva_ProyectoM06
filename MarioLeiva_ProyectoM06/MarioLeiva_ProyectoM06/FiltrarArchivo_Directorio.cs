@@ -13,7 +13,7 @@ namespace MarioLeiva_ProyectoM06
     public partial class FiltrarArchivo_Directorio : Form
     {
         public string filtro { get; set; }
-        MenuInicial menuInicial = new MenuInicial();
+        public DateTime fecha;
 
         public FiltrarArchivo_Directorio()
         {
@@ -72,7 +72,9 @@ namespace MarioLeiva_ProyectoM06
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            menuInicial.cutoffDate = dateTimePicker1.Value;
+            
+            fecha = dateTimePicker1.Value;
+
         }
 
         private void buttonAplicar_Click(object sender, EventArgs e)

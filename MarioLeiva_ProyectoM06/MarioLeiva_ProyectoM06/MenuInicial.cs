@@ -20,10 +20,11 @@ namespace MarioLeiva_ProyectoM06
 
         public string nombreArchivo, filtrar = "Todo", ordenar = "NombreAscendente";
         string filaSeleccionada;
-        public DateTime cutoffDate { get; set; }
+        public DateTime cutoffDate;
         public MenuInicial()
         {
             InitializeComponent();
+            
         }
 
         public MenuInicial(string texto)
@@ -64,6 +65,7 @@ namespace MarioLeiva_ProyectoM06
             if (filtrarArchivo_Directorio.ShowInTaskbar)
             {
                 filtrar = filtrarArchivo_Directorio.filtro;
+                cutoffDate = filtrarArchivo_Directorio.fecha;
                 cargarDatosEnDataGrid(textBoxRutaArchivo.Text);
             }
         }
@@ -222,14 +224,23 @@ namespace MarioLeiva_ProyectoM06
                 directorio = directorio.OrderByDescending(o => o.PesoArchivo).ToList();
             }
 
+            List<Fichero> itemsToRemove = new List<Fichero>();
+
             foreach (Fichero item in directorio)
             {
                 int result = DateTime.Compare(item.FechaModificacion, cutoffDate);
                 if (result < 0)
                 {
-                    directorio.Remove(item);
+                    itemsToRemove.Add(item);
                 }
             }
+
+            foreach (Fichero item in itemsToRemove)
+            {
+                directorio.Remove(item);
+            }
+
+
 
 
 

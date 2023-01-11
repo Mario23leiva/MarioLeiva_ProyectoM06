@@ -99,6 +99,7 @@
             // 
             // textBoxasdasd
             // 
+            this.textBoxasdasd.Enabled = false;
             this.textBoxasdasd.Location = new System.Drawing.Point(37, 219);
             this.textBoxasdasd.Name = "textBoxasdasd";
             this.textBoxasdasd.Size = new System.Drawing.Size(270, 20);
